@@ -1,0 +1,19 @@
+{
+  "name": "CNC Nano Pro production manager",
+  "short_name": "CNC NANO",
+  "description": "Suivi de production et performance pour machine CNC",
+  "start_url": "index.html",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "background_color": "#0f172a",
+  "theme_color": "#38bdf8",
+  "lang": "fr-FR",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "192x192 512x512",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["utilities", "productivity"]
+}
