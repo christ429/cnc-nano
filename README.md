@@ -11,7 +11,7 @@
 
 ---
 
-### 📱 Installation sur S23 (PWA)
+### 📱 Installation sur phone (PWA)
 
 Pour que l'application s'ouvre en **Plein Écran** et fonctionne **Hors-ligne** (sans internet) à l'atelier, suis ces étapes :
 
