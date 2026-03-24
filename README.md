@@ -1,5 +1,5 @@
 # ⚙️ CNC NANO PRO v4.2
-> Ton assistant de production d'atelier, directement sur ton S23.
+> Ton assistant de production d'atelier, directement sur ton phone.
 
 ---
 
