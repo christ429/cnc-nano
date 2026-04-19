@@ -36,6 +36,16 @@ setInterval(() => {
     const d = new Date();
     const hours = d.getHours();
     
+    // Calcul du numéro de semaine
+    const firstDayOfYear = new Date(d.getFullYear(), 0, 1);
+    const pastDaysOfYear = (d - firstDayOfYear) / 86400000;
+    const weekNum = Math.ceil((pastDaysOfYear + firstDayOfYear.getDay() + 1) / 7);
+
+    // Formatage de la date
+    const dateStr = d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit', year: 'numeric' });
+    const dateEl = document.getElementById('date-info');
+    if (dateEl) dateEl.innerText = `Semaine ${weekNum} | ${dateStr}`;
+
     let shift = "";
     if (hours >= 5 && hours < 13) shift = "MATIN (5h-13h)";
     else if (hours >= 13 && hours < 21) shift = "APREM (13h-21h)";

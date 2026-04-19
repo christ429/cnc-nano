@@ -29,6 +29,14 @@ h1 small { font-size: 0.5rem; opacity: 0.4; color: white; vertical-align: middle
 
 #clock { font-size: 0.85rem; font-weight: 600; opacity: 0.7; }
 
+.date-info {
+    font-size: 0.55rem;
+    color: var(--text);
+    opacity: 0.5;
+    margin-top: -3px;
+    font-weight: 500;
+}
+
 /* GRILLE DE SAISIE */
 .grid-input { 
     display: grid; 
@@ -44,13 +52,13 @@ h1 small { font-size: 0.5rem; opacity: 0.4; color: white; vertical-align: middle
 .field { display: flex; flex-direction: column; }
 .full { grid-column: span 3; }
 
-/* NUMERIC CONTROLS */
+/* NUMERIC CONTROLS - PLUS FINS */
 .number-control {
     display: flex;
     align-items: center;
     background: #0f172a;
     border: 1px solid var(--border);
-    border-radius: 8px;
+    border-radius: 6px;
     overflow: hidden;
 }
 
@@ -58,9 +66,9 @@ h1 small { font-size: 0.5rem; opacity: 0.4; color: white; vertical-align: middle
     background: var(--border);
     border: none;
     color: white;
-    width: 35px;
-    height: 35px;
-    font-size: 1.2rem;
+    width: 28px; /* Réduit de 35px */
+    height: 30px; /* Réduit de 35px */
+    font-size: 1rem;
     font-weight: 900;
     cursor: pointer;
     transition: 0.2s;
@@ -73,6 +81,8 @@ h1 small { font-size: 0.5rem; opacity: 0.4; color: white; vertical-align: middle
     flex: 1;
     min-width: 0;
     background: transparent !important;
+    padding: 4px 2px !important;
+    font-size: 0.9rem !important;
 }
 
 /* Supprimer les flèches natives */
