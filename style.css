@@ -44,6 +44,45 @@ h1 small { font-size: 0.5rem; opacity: 0.4; color: white; vertical-align: middle
 .field { display: flex; flex-direction: column; }
 .full { grid-column: span 3; }
 
+/* NUMERIC CONTROLS */
+.number-control {
+    display: flex;
+    align-items: center;
+    background: #0f172a;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.number-control button {
+    background: var(--border);
+    border: none;
+    color: white;
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+    font-weight: 900;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.number-control button:active { background: var(--accent); color: #0f172a; }
+
+.number-control input {
+    border: none !important;
+    flex: 1;
+    min-width: 0;
+    background: transparent !important;
+}
+
+/* Supprimer les flèches natives */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type=number] { -moz-appearance: textfield; }
+
 label { font-size: 0.55rem; text-transform: uppercase; color: #94a3b8; margin-bottom: 3px; font-weight: 700; }
 
 input { 

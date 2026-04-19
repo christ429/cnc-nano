@@ -58,6 +58,16 @@ setInterval(() => {
 
 // --- 5. LOGIQUE DE CALCUL ---
 
+function step(id, val) {
+    const el = document.getElementById(id);
+    let current = parseFloat(el.value) || 0;
+    el.value = Math.max(0, current + val);
+    
+    // Déclencher les calculs et la sauvegarde
+    if (startTime) comparer();
+    save();
+}
+
 function lancerSerie() {
     const tCycle = parseFloat(document.getElementById('time').value) || 0;
     const setup = parseFloat(document.getElementById('setup').value) || 0;

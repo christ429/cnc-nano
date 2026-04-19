@@ -36,17 +36,29 @@
             
             <div class="field">
                 <label>Montage (min)</label>
-                <input type="number" id="setup" value="0" inputmode="decimal">
+                <div class="number-control">
+                    <button type="button" onclick="step('setup', -5)">-</button>
+                    <input type="number" id="setup" value="0" inputmode="decimal">
+                    <button type="button" onclick="step('setup', 5)">+</button>
+                </div>
             </div>
             
             <div class="field">
                 <label>Qté Totale</label>
-                <input type="number" id="qte" inputmode="numeric">
+                <div class="number-control">
+                    <button type="button" onclick="step('qte', -1)">-</button>
+                    <input type="number" id="qte" inputmode="numeric">
+                    <button type="button" onclick="step('qte', 1)">+</button>
+                </div>
             </div>
             
             <div class="field">
                 <label>Temps Cycle (min)</label>
-                <input type="number" id="time" value="0" inputmode="decimal">
+                <div class="number-control">
+                    <button type="button" onclick="step('time', -0.5)">-</button>
+                    <input type="number" id="time" value="0" inputmode="decimal">
+                    <button type="button" onclick="step('time', 0.5)">+</button>
+                </div>
             </div>
             
             <div class="reprise-container full">
