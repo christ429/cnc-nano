@@ -1,11 +1,12 @@
-const CACHE_NAME = 'cnc-nano-v4.3'; // Version incrémentée
+const CACHE_NAME = 'cnc-nano-v4.5';
 const ASSETS = [
   './',
   './index.html',
   './style.css',
   './script.js',
   './manifest.json',
-  './icon.png'
+  './icon.png',
+  'https://unpkg.com/lucide@latest'
 ];
 
 self.addEventListener('install', (e) => {
