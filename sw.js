@@ -1,5 +1,5 @@
-const cacheName = 'cnc-nano-v42';
-const assets = [
+const CACHE_NAME = 'cnc-nano-v4.3'; // Version incrémentée
+const ASSETS = [
   './',
   './index.html',
   './style.css',
@@ -8,20 +8,25 @@ const assets = [
   './icon.png'
 ];
 
-// Installation : Mise en cache des fichiers
-self.addEventListener('install', e => {
+self.addEventListener('install', (e) => {
   e.waitUntil(
-    caches.open(cacheName).then(cache => {
-      return cache.addAll(assets);
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(ASSETS))
+  );
+  self.skipWaiting(); // Force l'activation immédiate
+});
+
+self.addEventListener('activate', (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) => {
+      return Promise.all(
+        keys.filter((key) => key !== CACHE_NAME).map((key) => caches.delete(key))
+      );
     })
   );
 });
 
-// Récupération : Utilise le cache si hors-ligne
-self.addEventListener('fetch', e => {
+self.addEventListener('fetch', (e) => {
   e.respondWith(
-    caches.match(e.request).then(res => {
-      return res || fetch(e.request);
-    })
+    caches.match(e.request).then((res) => res || fetch(e.request))
   );
 });
