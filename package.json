@@ -1,0 +1,17 @@
+{
+  "name": "cnc-nano-pro",
+  "version": "4.2.0",
+  "description": "Assistant CNC",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "christ429",
+  "license": "ISC",
+  "dependencies": {
+    "@capacitor/android": "^5.0.0",
+    "@capacitor/cli": "^5.0.0",
+    "@capacitor/core": "^5.0.0"
+  }
+}

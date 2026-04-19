@@ -1,0 +1,6 @@
+{
+  "appId": "com.cncnano.app",
+  "appName": "CNC NANO PRO",
+  "webDir": ".",
+  "bundledWebRuntime": false
+}
