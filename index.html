@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="CNC NANO">
+    
+    <link rel="icon" type="image/png" href="icon.png">
+    <link rel="apple-touch-icon" href="icon.png">
+    <link rel="manifest" href="manifest.json">
+    
+    <title>CNC Nano Pro v4.2</title>
+    
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header>
+            <h1>CNC NANO <span style="color:white">PRO</span> <small>v4.2</small></h1>
+            <div style="text-align: right;">
+                <div id="shift-badge" class="shift-badge">--</div>
+                <span id="clock">00:00</span>
+            </div>
+        </header>
+
+        <div class="grid-input">
+            <div class="field full">
+                <label>Référence Commande</label>
+                <input type="text" id="ref" placeholder="Ex: CMD-102">
+            </div>
+            
+            <div class="field">
+                <label>Montage (min)</label>
+                <input type="number" id="setup" value="0" inputmode="decimal">
+            </div>
+            
+            <div class="field">
+                <label>Qté Totale</label>
+                <input type="number" id="qte" inputmode="numeric">
+            </div>
+            
+            <div class="field">
+                <label>Temps Cycle (min)</label>
+                <input type="number" id="time" value="0" inputmode="decimal">
+            </div>
+            
+            <div class="reprise-container full">
+                <label class="switch-label">
+                    <span>Reprise de poste ?</span>
+                    <div class="switch">
+                        <input type="checkbox" id="check">
+                        <span class="slider"></span>
+                    </div>
+                </label>
+            </div>
+            
+            <div id="done-div" class="field full hidden">
+                <label>Pièces déjà faites</label>
+                <input type="number" id="done" value="0" inputmode="numeric">
+            </div>
+            
+            <button class="main-btn" id="btn-start">Démarrer la série</button>
+        </div>
+
+        <div id="results">
+            <div class="res-lab">Fin estimée (réelle)</div>
+            <div id="res-main" class="big-res">--:--</div>
+            <div id="shift-end-status" style="font-size: 0.7rem; font-weight: 700; margin-top: -5px; opacity: 0.9;"></div>
+            
+            <div class="res-footer" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 10px; padding-bottom: 10px;">
+                <div>OBJECTIF FIN: <span id="res-target-time" style="font-weight: 900;">--:--</span></div>
+                <div>FIN POSTE: <span id="res-shift-time" style="font-weight: 900;">--:--</span></div>
+            </div>
+
+            <div class="res-footer">
+                <div>CIBLE: <span id="res-tpp">--</span></div>
+                <div>OBJ: <span id="res-obj">--</span></div>
+            </div>
+        </div>
+
+        <div id="bilan-section">
+            <div id="start-info" class="info-start">Début: --:-- | Réel: 0h 00m</div>
+            
+            <div class="field full">
+                <label>Pièces produites (Total série)</label>
+                <input type="number" id="real-qty" placeholder="Quantité actuelle" inputmode="numeric">
+            </div>
+
+            <div class="shift-stats">
+                <div class="res-lab">Production de mon poste</div>
+                <div id="shift-prod" class="delta-val" style="color: var(--accent);">0</div>
+            </div>
+            
+            <div class="bilan-grid">
+                <div>
+                    <span class="res-lab">Cadence réelle</span>
+                    <span id="real-cadence" class="delta-val">--</span>
+                </div>
+                <div>
+                    <span class="res-lab">Avance / Retard</span>
+                    <span id="real-delta" class="delta-val">--</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
