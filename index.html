@@ -16,29 +16,34 @@
     <title>CNC Nano Pro v4.2</title>
     
     <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
 </head>
 <body>
 
     <div class="app">
         <header>
-            <div>
-                <h1>CNC NANO <span style="color:white">PRO</span> <small>v4.2</small></h1>
+            <div class="header-left">
+                <h1>CNC NANO <span>PRO</span> <small>v4.2</small></h1>
                 <div id="date-info" class="date-info">Semaine -- | --/--/----</div>
             </div>
-            <div style="text-align: right;">
+            <div class="header-right">
                 <div id="shift-badge" class="shift-badge">--</div>
-                <span id="clock">00:00</span>
+                <div id="clock-container">
+                    <i data-lucide="clock" size="14"></i>
+                    <span id="clock">00:00</span>
+                </div>
             </div>
         </header>
 
         <div class="grid-input">
             <div class="field full">
-                <label>Référence Commande</label>
+                <label><i data-lucide="tag" size="10"></i> Référence Commande</label>
                 <input type="text" id="ref" placeholder="Ex: CMD-102">
             </div>
             
             <div class="field">
-                <label>Montage (min)</label>
+                <label><i data-lucide="wrench" size="10"></i> Montage (min)</label>
                 <div class="number-control">
                     <button type="button" onclick="step('setup', -5)">-</button>
                     <input type="number" id="setup" value="0" inputmode="decimal">
@@ -47,7 +52,7 @@
             </div>
             
             <div class="field">
-                <label>Qté Totale</label>
+                <label><i data-lucide="layers" size="10"></i> Qté Totale</label>
                 <div class="number-control">
                     <button type="button" onclick="step('qte', -1)">-</button>
                     <input type="number" id="qte" inputmode="numeric">
@@ -56,7 +61,7 @@
             </div>
             
             <div class="field">
-                <label>Temps Cycle (min)</label>
+                <label><i data-lucide="timer" size="10"></i> Cycle (min)</label>
                 <div class="number-control">
                     <button type="button" onclick="step('time', -0.5)">-</button>
                     <input type="number" id="time" value="0" inputmode="decimal">
@@ -66,7 +71,7 @@
             
             <div class="reprise-container full">
                 <label class="switch-label">
-                    <span>Reprise de poste ?</span>
+                    <span><i data-lucide="refresh-cw" size="14"></i> Reprise de poste ?</span>
                     <div class="switch">
                         <input type="checkbox" id="check">
                         <span class="slider"></span>
@@ -79,27 +84,37 @@
                 <input type="number" id="done" value="0" inputmode="numeric">
             </div>
             
-            <button class="main-btn" id="btn-start">Démarrer la série</button>
+            <button class="main-btn" id="btn-start">
+                <i data-lucide="play" size="16"></i> Démarrer la série
+            </button>
         </div>
 
         <div id="results">
             <div class="res-lab">Fin estimée (réelle)</div>
             <div id="res-main" class="big-res">--:--</div>
-            <div id="shift-end-status" style="font-size: 0.7rem; font-weight: 700; margin-top: -5px; opacity: 0.9;"></div>
+            <div id="shift-end-status" class="status-badge"></div>
             
-            <div class="res-footer" style="border-bottom: 1px solid rgba(255, 255, 255, 0.1); margin-bottom: 10px; padding-bottom: 10px;">
-                <div>OBJECTIF FIN: <span id="res-target-time" style="font-weight: 900;">--:--</span></div>
-                <div>FIN POSTE: <span id="res-shift-time" style="font-weight: 900;">--:--</span></div>
+            <div class="res-footer-main">
+                <div class="res-item">
+                    <span class="res-lab">Objectif Fin</span>
+                    <span id="res-target-time">--:--</span>
+                </div>
+                <div class="res-item">
+                    <span class="res-lab">Fin Poste</span>
+                    <span id="res-shift-time">--:--</span>
+                </div>
             </div>
 
-            <div class="res-footer">
+            <div class="res-footer-sub">
                 <div>CIBLE: <span id="res-tpp">--</span></div>
-                <div>OBJ: <span id="res-obj">--</span></div>
+                <div>À FAIRE: <span id="res-obj">--</span></div>
             </div>
         </div>
 
         <div id="bilan-section">
-            <div id="start-info" class="info-start">Début: --:-- | Réel: 0h 00m</div>
+            <div id="start-info" class="info-start">
+                <i data-lucide="info" size="12"></i> Début: --:-- | Réel: 0h 00m
+            </div>
             
             <div class="field full">
                 <label>Pièces produites (Total série)</label>
@@ -112,11 +127,11 @@
             </div>
             
             <div class="bilan-grid">
-                <div>
+                <div class="bilan-item">
                     <span class="res-lab">Cadence réelle</span>
                     <span id="real-cadence" class="delta-val">--</span>
                 </div>
-                <div>
+                <div class="bilan-item">
                     <span class="res-lab">Avance / Retard</span>
                     <span id="real-delta" class="delta-val">--</span>
                 </div>
@@ -125,5 +140,9 @@
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // Initialiser Lucide Icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
